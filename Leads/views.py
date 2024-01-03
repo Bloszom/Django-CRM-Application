@@ -3,12 +3,17 @@ from django.http import HttpResponse
 from .models import Lead
 # Create your views here.
 
-def home_page(request):
+def lead_list(request):
     leads = Lead.objects.all()
     context = {
         "leads" : leads
-        #"name": "bloszy",
-        #"age": "12"
     }
    # return HttpResponse("Hello world!!")
-    return render(request, "secondpage.html", context)
+    return render(request, "Leads/leads_list.html", context)
+
+def lead_detail(request, pk): 
+    lead = Lead.objects.get(id=pk)
+    context = {
+        "leads" : lead
+    }
+    return render(request, "Leads/lead_detail.html", context)
