@@ -476,7 +476,7 @@ class FollowUpDeleteView(OrganisorAndLoginRequiredMixin, generic.DeleteView):
     #     "form": form,
     #     "lead": lead
     # }
-#     return render(request, "leads/lead_update.html", context)
+#   return render(request, "leads/lead_update.html", context)
 
 
 # def lead_create(request):
@@ -498,7 +498,7 @@ class FollowUpDeleteView(OrganisorAndLoginRequiredMixin, generic.DeleteView):
     # context = {
     #     "form": form
     # }
-#     return render(request, "leads/lead_create.html", context)
+    #return render(request, "leads/lead_create.html", context)
 
 
 class LeadJsonView(generic.View):
