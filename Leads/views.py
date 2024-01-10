@@ -389,7 +389,7 @@ class LeadCategoryUpdateView(LoginRequiredMixin, generic.UpdateView):
         instance = form.save(commit=False)
         converted_category = Category.objects.get(name="Converted")
         if form.cleaned_data["category"] == converted_category:
-            # update the date at which this lead was converted
+                # update the date at which this lead was converted
             if lead_before_update.category != converted_category:
                 # this lead has now been converted
                 instance.converted_date = datetime.datetime.now()
@@ -425,7 +425,7 @@ class FollowUpUpdateView(LoginRequiredMixin, generic.UpdateView):
 
     def get_queryset(self):
         user = self.request.user
-        # initial queryset of leads for the entire organisation
+             # initial queryset of leads for the entire organisation
         if user.is_organisor:
             queryset = FollowUp.objects.filter(lead__organisation=user.userprofile)
         else:
