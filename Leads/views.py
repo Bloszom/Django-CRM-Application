@@ -281,7 +281,7 @@ class CategoryListView(LoginRequiredMixin, generic.ListView):
 
     def get_queryset(self):
         user = self.request.user
-        # initial queryset of leads for the entire organisation
+            # initial queryset of leads for the entire organisation
         if user.is_organisor:
             queryset = Category.objects.filter(
                 organisation=user.userprofile
@@ -299,7 +299,7 @@ class CategoryDetailView(LoginRequiredMixin, generic.DetailView):
 
     def get_queryset(self):
         user = self.request.user
-        # initial queryset of leads for the entire organisation
+             # initial queryset of leads for the entire organisation
         if user.is_organisor:
             queryset = Category.objects.filter(
                 organisation=user.userprofile
