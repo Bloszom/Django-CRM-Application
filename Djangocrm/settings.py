@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+
+'''
 import environ
 
 env = environ.Env(
@@ -20,9 +22,7 @@ env = environ.Env(
 READ_DOT_ENV_FILE = env.bool('READ_DOT_ENV_FILE', default=False)
 if READ_DOT_ENV_FILE:
     environ.Env.read_env()
-
-DEBUG = env('DEBUG')
-SECRET_KEY = env('SECRET_KEY')
+'''
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -31,12 +31,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
-ALLOWED_HOSTS = ['*']
+SECRET_KEY = '!6hxs6u0*1aei)g-$ul2)c7e8^34cr_%b7d3el(yxtk1h$nd%='
+
+DEBUG = True
+
+ALLOWED_HOSTS = []
+#ALLOWED_HOSTS = ['*']
 
 # Application definition
 
 INSTALLED_APPS = [
-    'whitenoise.runserver_nostatic',
+    #'whitenoise.runserver_nostatic',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -47,7 +52,7 @@ INSTALLED_APPS = [
      # Third party apps
     'crispy_forms',
     "crispy_tailwind",
-    'tailwind',
+    #'tailwind',
     'theme',
 
     #Local apps
@@ -93,14 +98,17 @@ WSGI_APPLICATION = 'Djangocrm.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': env("DB_NAME"),
-        'USER': env("DB_USER"),
-        'PASSWORD': env("DB_PASSWORD"),
-        'HOST': env("DB_HOST"),
-        'PORT': env("DB_PORT"),
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
-}
+ #   'default': {
+  #      'ENGINE': 'django.db.backends.postgresql_psycopg2',
+   #     'NAME': env("DB_NAME"),
+    #    'USER': env("DB_USER"),
+     #   'PASSWORD': env("DB_PASSWORD"),
+      #  'HOST': env("DB_HOST"),
+       # 'PORT': env("DB_PORT"),
+    }
 
 
 # Password validation
@@ -143,12 +151,15 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR / "static"
 ]
+'''
 MEDIA_URL = '/media/'
 MEDIA_ROOT = "media_root"
+'''
 STATIC_ROOT = "static_root"
+'''
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
-AUTH_USER_MODEL = 'leads.User'
+'''
+AUTH_USER_MODEL = 'Leads.User'
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 LOGIN_REDIRECT_URL = "/leads"
 LOGIN_URL = "/login"
@@ -156,7 +167,7 @@ LOGOUT_REDIRECT_URL = "/"
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "tailwind"
 CRISPY_TEMPLATE_PACK = 'tailwind'
-
+'''
 if not DEBUG:
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
     SECURE_SSL_REDIRECT = True
@@ -196,3 +207,4 @@ LOGGING = {
 
 TAILWIND_APP_NAME = 'theme'
 
+'''
