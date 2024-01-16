@@ -14,8 +14,6 @@ class LeadAdmin(admin.ModelAdmin):
     list_filter = ['category']
     search_fields = ['first_name', 'last_name', 'email']
 
-
-
 admin.site.register(Category)
 admin.site.register(User)
 admin.site.register(UserProfile)
