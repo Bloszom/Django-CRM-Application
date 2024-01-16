@@ -498,7 +498,6 @@ class FollowUpDeleteView(OrganisorAndLoginRequiredMixin, generic.DeleteView):
     # }
     #return render(request, "leads/lead_create.html", context)
 
-
 class LeadJsonView(generic.View):
 
     def get(self, request, *args, **kwargs):
