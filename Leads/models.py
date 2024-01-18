@@ -84,7 +84,7 @@ class FollowUp(models.Model):
 
 class Agent(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    organisation = models.ForeignKey(UserProfile, on_delete=models.CASCADE, default=None)
+    organisation = models.ForeignKey(UserProfile, on_delete=models.CASCADE,)
 
     def __str__(self):
         return self.user.email
